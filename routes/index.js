@@ -1,6 +1,10 @@
-exports.index = function(req, res){
-  var initialState = {
-    title:"INDEX",
+
+var router = {};
+
+router.index = {
+  path:"/",
+  initialState:{
+    title: "Index",
     data:{
       componentName: "index",
       items: [
@@ -9,19 +13,25 @@ exports.index = function(req, res){
         '</script><script>alert(666)</script>'
       ],
       text: ''
-    },
-
+    }
+  },
+  handler: function(initialState, req, res){
+    res.render("Html", initialState);
   }
-  res.render("Html", initialState);
 };
 
-exports.hello = function(req, res){
-  var initialState = {
+router.hello = {
+  path:"/hello",
+  initialState:{
     title:'HELLO',
     data:{
       componentName: "hello",
       name:'asad'
     }
-  };
-  res.render('Html', initialState);
+  },
+  handler: function(initialState, req, res){
+    res.render("Html", initialState);
+  }
 };
+
+module.exports = router;
