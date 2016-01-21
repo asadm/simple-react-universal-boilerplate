@@ -1,11 +1,11 @@
 {
-  "name": "dynamic-views",
+  "name": "simple-react-universal-boilerplate",
   "version": "0.1.0",
-  "description": "Example of creating a dynamic app using express-react-views",
-  "author": "Chris Johnson <tenorviol@yahoo.com>",
-  "private": true,
+  "description": "A low dependency and bit hacky react 'universal' app template",
+  "author": "Asad Memon",
   "scripts": {
-    "start": "browserify -t babelify --standalone main views/main.js -o public/main.js; node app.js"
+    "start": "browserify -t babelify --standalone main views/main.js -o public/main.js; node app.js",
+    "postinstall": "browserify -t babelify --standalone main views/main.js -o public/main.js"
   },
   "dependencies": {
     "babelify": "^6.3.0",

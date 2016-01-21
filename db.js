@@ -6,7 +6,7 @@ These are quite simply our 'models'.
 var db = {};
 
 var todoList = [
-  'documendt your code',
+  'document your code',
   'drop the kids off at the pool',
   '</script><script>alert(666)</script>'
 ];

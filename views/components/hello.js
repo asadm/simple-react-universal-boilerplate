@@ -9,7 +9,7 @@ var HelloMessage = React.createClass({
   render: function() {
 
     return (
-      <div>Hello2 {this.props.name}</div>
+      <div>Hello {this.props.name}</div>
     );
   }
 });

@@ -13,7 +13,7 @@ var router = {};
 router.index = {
   path:"/",
   initialState:{
-    title: "Index",
+    title: "Index Page",
     data:{
       componentName: "index",
       items: [],
@@ -32,10 +32,10 @@ router.index = {
 router.hello = {
   path:"/hello",
   initialState:{
-    title:'HELLO',
+    title:'Hello Page',
     data:{
       componentName: "hello",
-      name:'asad'
+      name:'Asad'
     }
   },
   handler: function(initialState, req, res){
