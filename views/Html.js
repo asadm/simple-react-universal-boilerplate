@@ -55,6 +55,7 @@ module.exports = React.createClass({
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
           <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+          <title>{this.props.title}</title>
         </head>
         <body>
           <div id="content" dangerouslySetInnerHTML={{__html: contentHtml}}/>

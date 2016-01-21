@@ -1,8 +1,8 @@
 var React = require('react');
 
 var components = {
-  index: require('./index'),
-  hello: require('./hello')
+  index: require('./components/index'),
+  hello: require('./components/hello')
 }
 
 
