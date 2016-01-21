@@ -5,7 +5,7 @@ This is a basic Todo List. It does two things:
 */
 
 var React = require('react');
-var request = require('request');
+var request = require('superagent');
 
 var TodoList = React.createClass({
   render: function() {
@@ -28,12 +28,17 @@ var TodoApp = React.createClass({
     e.preventDefault();
     var nextItems = this.state.items.concat([this.state.text]);
     var nextText = '';
-    var rootpath = window.location.protocol + "//" + window.location.host;
 
-    request.post(rootpath + "/api/add",{json:{item:this.state.text}},function(error,response,body){
-      console.log(error,body);
+    request
+    .post('/api/add')
+    .send({item:this.state.text})
+    .set('Accept', 'application/json')
+    .end(function(err, res){
+      console.log(err,res);
+      this.setState({items: nextItems, text: nextText});
     }.bind(this));
-    this.setState({items: nextItems, text: nextText});
+
+
     //console.log("added");
   },
   render: function() {

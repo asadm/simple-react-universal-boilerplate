@@ -5,9 +5,13 @@ This is the main entry point for node app. This file does:
 */
 var express = require('express');
 var reactViews = require('express-react-views');
+var compression = require('compression')
 
 var app = express();
 var port = process.env.PORT || 3000;
+// compress all requests
+app.use(compression());
+
 
 var routes = require('./routes');
 

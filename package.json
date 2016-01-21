@@ -4,17 +4,19 @@
   "description": "A low dependency and bit hacky react 'universal' app template",
   "author": "Asad Memon",
   "scripts": {
-    "start": "browserify -t babelify --standalone main views/main.js -o public/main.js; node app.js",
-    "postinstall": "browserify -t babelify --standalone main views/main.js -o public/main.js"
+    "start": "browserify -t babelify -g uglifyify --standalone main views/main.js -o public/main.js; node app.js",
+    "postinstall": "browserify -t babelify -g uglifyify --standalone main views/main.js -o public/main.js"
   },
   "dependencies": {
     "babelify": "^6.3.0",
     "body-parser": "^1.14.2",
     "browserify": "^8.0.3",
+    "compression": "^1.6.1",
     "express": "^4.10.6",
     "express-react-views": "^0.9.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
-    "request": "^2.67.0"
+    "superagent": "^1.7.1",
+    "uglifyify": "^3.0.1"
   }
 }
