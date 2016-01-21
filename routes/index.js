@@ -1,25 +1,34 @@
+/*
+
+This file holds all the view routes for our app and loads corresponding react component
+when that route is called by user.
+
+*/
+
+var db = require("../db.js");
 
 var router = {};
 
+//The homepage
 router.index = {
   path:"/",
   initialState:{
     title: "Index",
     data:{
       componentName: "index",
-      items: [
-        'documendt your code',
-        'drop the kids off at the pool',
-        '</script><script>alert(666)</script>'
-      ],
+      items: [],
       text: ''
     }
   },
   handler: function(initialState, req, res){
-    res.render("Html", initialState);
+    db.getAllTodos(function(list){
+      initialState.data.items = list;
+      res.render("Html", initialState);
+    });
   }
 };
 
+//example second route at /hello
 router.hello = {
   path:"/hello",
   initialState:{

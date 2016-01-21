@@ -1,4 +1,11 @@
+/*
+This is a basic Todo List. It does two things:
+- Renders the list it receives in props.items.
+- Sends POST to our api when new item is added.
+*/
+
 var React = require('react');
+var request = require('request');
 
 var TodoList = React.createClass({
   render: function() {
@@ -21,6 +28,11 @@ var TodoApp = React.createClass({
     e.preventDefault();
     var nextItems = this.state.items.concat([this.state.text]);
     var nextText = '';
+    var rootpath = window.location.protocol + "//" + window.location.host;
+
+    request.post(rootpath + "/api/add",{json:{item:this.state.text}},function(error,response,body){
+      console.log(error,body);
+    }.bind(this));
     this.setState({items: nextItems, text: nextText});
     //console.log("added");
   },
