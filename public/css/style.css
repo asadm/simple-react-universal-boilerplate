@@ -86,7 +86,7 @@ body{
 
 .loginmodal-container a {
   text-decoration: none;
-  color: #666;
+  font-size: 13px;
   font-weight: 400;
   text-align: center;
   display: inline-block;
@@ -96,4 +96,12 @@ body{
 
 .login-help{
   font-size: 12px;
+}
+
+.login-container .alternate-container{
+  max-width: 350px;
+  width: 100% !important;
+  margin: 30px auto;
+  text-align: center;
+
 }

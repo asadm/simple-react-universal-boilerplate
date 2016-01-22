@@ -9,19 +9,24 @@ var Register = React.createClass({
   render: function() {
 
     return (
-      <div className="loginmodal-container">
-				<h1>Create Account</h1><br/>
-			  <form action="/api/register" method="post">
-				<input type="text" name="username" placeholder="Username" />
-				<input type="password" name="password" placeholder="Password" />
-        <input type="text" name="email" placeholder="Email" />
-				<input type="submit" className="login loginmodal-submit" value="Register" />
-			  </form>
+      <div className="login-container">
+        <div className="loginmodal-container">
+  				<h1>Create Account</h1><br/>
+  			  <form action="/api/register" method="post">
+  				<input type="text" name="username" placeholder="Username" />
+  				<input type="password" name="password" placeholder="Password" />
+          <input type="text" name="email" placeholder="Email" />
+  				<input type="submit" className="login loginmodal-submit" value="Register" />
+  			  </form>
 
-			  <div className="login-help">
-				    <a href="/login">Login</a>
-			  </div>
-			</div>
+  			  <div className="login-help">
+
+  			  </div>
+  			</div>
+        <div className="alternate-container">
+          <a href="/login">Login</a>
+        </div>
+      </div>
     );
   }
 });

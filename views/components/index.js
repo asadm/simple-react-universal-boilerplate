@@ -56,7 +56,7 @@ var TodoApp = React.createClass({
               (this.props.userData)?
                 (<p className="navbar-text pull-right">{this.props.userData.username} | <a href="api/logout" className="navbar-link">Logout</a></p>)
               :
-                (<p className="navbar-text pull-right"><a href="/login" className="navbar-link">Login</a></p>)
+                (<p className="navbar-text pull-right"><a href="/login" className="navbar-link">Login</a> | <a href="/register" className="navbar-link">Register</a></p>)
 
             }
           </div>
