@@ -34,9 +34,11 @@ for (var i in routes){
     app.get(routes[i].path,function(req, res){
 
       //cloning can be improved. This works for now.
-      var stateClone = JSON.parse(JSON.stringify(routes[i].initialState));
+      var stateClone = cloneObject(routes[i].initialState);
+
       //add user session data (if any)
-      stateClone.data.userData = (req.user) || false;
+      stateClone.data.userData = (req.user)?cloneObject(req.user):false;
+
       //remove password info
       if (stateClone.data.userData)
         delete stateClone.data.userData.password;
@@ -48,6 +50,9 @@ for (var i in routes){
 
 }
 
+function cloneObject(obj){
+  return JSON.parse(JSON.stringify(obj));
+}
 
 
 
