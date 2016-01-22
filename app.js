@@ -15,6 +15,9 @@ app.use(compression());
 
 var routes = require('./routes');
 
+//setup our login APIs
+require('./loginapi')(app, express);
+
 //setup our APIs
 require('./api')(app, express);
 
@@ -34,6 +37,10 @@ for (var i in routes){
       var stateClone = JSON.parse(JSON.stringify(routes[i].initialState));
       //add user session data (if any)
       stateClone.data.userData = (req.user) || false;
+      //remove password info
+      if (stateClone.data.userData)
+        delete stateClone.data.userData.password;
+
       routes[i].handler(stateClone,req,res);
     });
     console.log("route %s configured",routes[i].path);

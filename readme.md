@@ -1,7 +1,7 @@
 Simple React Universal Boilerplate
 ===========================
 
-my aim with this repo is to create a no-bullshit, fast, and easy to use react boilerplate (mostly for my personal projects).
+My aim with this repo is to create a no-bullshit, fast, and easy to use react boilerplate (mostly for my personal projects).
 Based on example from [express-react-views](https://github.com/reactjs/express-react-views/).
 Rendering the application server-side using express-react-views.
 
@@ -38,6 +38,7 @@ Relevant Files
 - [```./views```](views) holds all the view related files and all React components.
 - [```./api.js```](api.js) set's up api endpoints. Preferably at /api/* path. These api endpoints can be used by our client-sided react app to send form data or request new data.
 - [```./db.js```](db.js) should hold all the interaction with database or our persistent storage. These are quite simply our 'models'. Currently has dummy models.
+- [```./loginapi.js```](loginapi.js) set's up login api endpoints using passport and passport-local.
 
 No Flux?
 ------

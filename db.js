@@ -36,24 +36,28 @@ db.addTodo = function(item,cb) {
 
 // This function will check user login
 db.checkLogin = function(user,pass,cb) {
+  if (user && pass){
+    for (var i in users){
+      // username found?
+      if (user===users[i].username){
+        // Now check password, first salt the query password and try to match with saved saltedpass
+        var querypass = hash(pass, users[i].password.salt);
 
-  for (var i in users){
-    // username found?
-    if (user===users[i].username){
-      // Now check password, first salt the query password and try to match with saved saltedpass
-      var querypass = hash(pass, users[i].password.salt);
+        if (querypass===users[i].password.password){
+          cb(false,users[i]); //callback with user object.
+        }
+        else{
+          cb(false,false); //auth failed
+        }
 
-      if (querypass===users[i].password.password){
-        cb(false,users[i]); //callback with user object.
+        return; //quit searching regardless
       }
       else{
         cb(false,false); //auth failed
       }
-
-      return; //quit searching regardless
     }
   }
-
+  
   cb(false,false); //didn't find username. auth failed.
 }
 
