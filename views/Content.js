@@ -4,7 +4,8 @@ var routes = require('../routes');
 //all main components need to be listed here for browserify to work
 var components = {
   index: require('./components/index'),
-  hello: require('./components/hello')
+  login: require('./components/login'),
+  register: require('./components/register')
 }
 
 

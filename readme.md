@@ -1,7 +1,7 @@
 Simple React Universal Boilerplate
 ===========================
 
-Objective here is to create a no-bullshit, fast, and an easy way to use react (mostly for my personal projects).
+my aim with this repo is to create a no-bullshit, fast, and easy to use react boilerplate (mostly for my personal projects).
 Based on example from [express-react-views](https://github.com/reactjs/express-react-views/).
 Rendering the application server-side using express-react-views.
 
@@ -9,9 +9,25 @@ Rendering the application server-side using express-react-views.
 
 How To Run
 ------
-
+When developing on local machine, run:
+``` sh
     npm install
-    npm start
+    npm run dev
+```
+This will allow you to edit files on the fly and see changes without having to restart the server.
+
+When you want the minified/production-like version for running on server use:
+``` sh
+	npm install
+	npm start
+```
+
+What's Included
+------
+- Server-side react rendering using express.
+- Client-side react with initial state sent from server.
+- Very simple login system based on passport.
+- Browserify and Watchify.
 
 
 Relevant Files

@@ -16,7 +16,7 @@ app.use(compression());
 var routes = require('./routes');
 
 //setup our APIs
-require('./api')(app);
+require('./api')(app, express);
 
 app.set('view engine', 'js');
 app.engine('js', reactViews.createEngine());
@@ -32,6 +32,8 @@ for (var i in routes){
 
       //cloning can be improved. This works for now.
       var stateClone = JSON.parse(JSON.stringify(routes[i].initialState));
+      //add user session data (if any)
+      stateClone.data.userData = (req.user) || false;
       routes[i].handler(stateClone,req,res);
     });
     console.log("route %s configured",routes[i].path);

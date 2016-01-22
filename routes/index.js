@@ -28,14 +28,27 @@ router.index = {
   }
 };
 
-//example second route at /hello
-router.hello = {
-  path:"/hello",
+//login route at /login
+router.login = {
+  path:"/login",
   initialState:{
-    title:'Hello Page',
+    title:'Login Page',
     data:{
-      componentName: "hello",
-      name:'Asad'
+      componentName: "login"
+    }
+  },
+  handler: function(initialState, req, res){
+    res.render("Html", initialState);
+  }
+};
+
+//register route at /register
+router.register = {
+  path:"/register",
+  initialState:{
+    title:'New Account',
+    data:{
+      componentName: "register"
     }
   },
   handler: function(initialState, req, res){

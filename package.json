@@ -1,10 +1,11 @@
 {
   "name": "simple-react-universal-boilerplate",
   "version": "0.1.0",
-  "description": "A low dependency and bit hacky react 'universal' app template",
+  "description": "A less complicated (and a bit hacky) react 'universal' app template",
   "author": "Asad Memon",
   "scripts": {
     "start": "browserify -t babelify -g uglifyify --standalone main views/main.js -o public/main.js; node app.js",
+    "dev": "watchify -t babelify --verbose --standalone main views/main.js -o public/main.js & node app.js",
     "postinstall": "browserify -t babelify -g uglifyify --standalone main views/main.js -o public/main.js"
   },
   "dependencies": {
@@ -12,11 +13,20 @@
     "body-parser": "^1.14.2",
     "browserify": "^8.0.3",
     "compression": "^1.6.1",
+    "cookie-parser": "^1.4.1",
     "express": "^4.10.6",
     "express-react-views": "^0.9.0",
+    "express-session": "^1.13.0",
+    "install": "^0.4.1",
+    "npm": "^3.5.3",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "superagent": "^1.7.1",
     "uglifyify": "^3.0.1"
+  },
+  "devDependencies": {
+    "watchify": "^3.7.0"
   }
 }

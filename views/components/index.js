@@ -43,8 +43,25 @@ var TodoApp = React.createClass({
   },
   render: function() {
     return (
+
       <div className="container">
-        <h3>TODO List</h3>
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <a className="navbar-brand" href="#">
+                Todo
+              </a>
+            </div>
+            {
+              (this.props.userData)?
+                (<p className="navbar-text pull-right">{this.props.userData.username} | <a href="api/logout" className="navbar-link">Logout</a></p>)
+              :
+                (<p className="navbar-text pull-right"><a href="/login" className="navbar-link">Login</a></p>)
+
+            }
+          </div>
+        </nav>
+        <h3>Hello {(this.props.userData)?this.props.userData.username:""}</h3>
         <TodoList items={this.state.items} />
         <form className="form-inline" onSubmit={this.handleSubmit}>
           <div className="form-group">
