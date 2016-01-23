@@ -89,7 +89,7 @@ db.addUser = function(userdata,cb){
   //looks good, save the data...but wait!
 
   //let's not save password in plain text. Let's salt the password and save both salt and saltedpassword.
-  var salt = newSalt(4);
+  var salt = newSalt(24);
   var saltedpass = hash(userdata.password, salt);
   userdata.password = {salt:salt,password:saltedpass};
   users.push(userdata);
